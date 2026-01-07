@@ -511,11 +511,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: AlqurancobaWidget.routeName,
-          path: AlqurancobaWidget.routePath,
-          builder: (context, params) => AlqurancobaWidget(),
-        ),
-        FFRoute(
           name: ListmybookmarkWidget.routeName,
           path: ListmybookmarkWidget.routePath,
           builder: (context, params) => ListmybookmarkWidget(),
@@ -624,6 +619,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             iddoa: params.getParam(
               'iddoa',
               ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: HomeQuranNewWidget.routeName,
+          path: HomeQuranNewWidget.routePath,
+          builder: (context, params) => HomeQuranNewWidget(),
+        ),
+        FFRoute(
+          name: DetailSuratAlquranWidget.routeName,
+          path: DetailSuratAlquranWidget.routePath,
+          builder: (context, params) => DetailSuratAlquranWidget(
+            namaSurat: params.getParam(
+              'namaSurat',
+              ParamType.String,
+            ),
+            nama: params.getParam(
+              'nama',
+              ParamType.String,
+            ),
+            nomorSurah: params.getParam(
+              'nomorSurah',
+              ParamType.int,
+            ),
+            namaSurahlatin: params.getParam(
+              'namaSurahlatin',
+              ParamType.String,
             ),
           ),
         )

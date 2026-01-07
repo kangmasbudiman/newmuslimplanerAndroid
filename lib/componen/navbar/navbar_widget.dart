@@ -163,7 +163,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.pushNamed(HomeAlquranWidget.routeName);
+              context.pushNamed(HomeQuranNewWidget.routeName);
             },
             child: Container(
               decoration: BoxDecoration(

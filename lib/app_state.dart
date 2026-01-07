@@ -400,6 +400,42 @@ class FFAppState extends ChangeNotifier {
     updateFn(_countlogstate);
   }
 
+  /// chace ayat ayat Al-Quran
+  List<dynamic> _newAyatAlquran = [];
+  List<dynamic> get newAyatAlquran => _newAyatAlquran;
+  set newAyatAlquran(List<dynamic> value) {
+    _newAyatAlquran = value;
+  }
+
+  void addToNewAyatAlquran(dynamic value) {
+    newAyatAlquran.add(value);
+  }
+
+  void removeFromNewAyatAlquran(dynamic value) {
+    newAyatAlquran.remove(value);
+  }
+
+  void removeAtIndexFromNewAyatAlquran(int index) {
+    newAyatAlquran.removeAt(index);
+  }
+
+  void updateNewAyatAlquranAtIndex(
+    int index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    newAyatAlquran[index] = updateFn(_newAyatAlquran[index]);
+  }
+
+  void insertAtIndexInNewAyatAlquran(int index, dynamic value) {
+    newAyatAlquran.insert(index, value);
+  }
+
+  bool _cariNewSurah = false;
+  bool get cariNewSurah => _cariNewSurah;
+  set cariNewSurah(bool value) {
+    _cariNewSurah = value;
+  }
+
   final _kategoriManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> kategori({
     String? uniqueQueryKey,
@@ -849,6 +885,21 @@ class FFAppState extends ChangeNotifier {
   void clearSakitCache() => _sakitManager.clear();
   void clearSakitCacheKey(String? uniqueKey) =>
       _sakitManager.clearRequest(uniqueKey);
+
+  final _newQuranManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> newQuran({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _newQuranManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearNewQuranCache() => _newQuranManager.clear();
+  void clearNewQuranCacheKey(String? uniqueKey) =>
+      _newQuranManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

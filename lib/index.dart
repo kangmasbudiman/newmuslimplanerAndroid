@@ -91,7 +91,6 @@ export '/admin_page/list_user_help_support/list_user_help_support_widget.dart'
     show ListUserHelpSupportWidget;
 export '/admin_page/list_user/list_user_widget.dart' show ListUserWidget;
 export '/admin_page/detail_user/detail_user_widget.dart' show DetailUserWidget;
-export '/alqurancoba/alqurancoba_widget.dart' show AlqurancobaWidget;
 export '/a_l_quran/listmybookmark/listmybookmark_widget.dart'
     show ListmybookmarkWidget;
 export '/doa_doa/doadoa_by_kategorinew/doadoa_by_kategorinew_widget.dart'
@@ -114,3 +113,7 @@ export '/dashoard/home_doa_copy/home_doa_copy_widget.dart'
     show HomeDoaCopyWidget;
 export '/doa_doa/detail_doanew/detail_doanew_widget.dart'
     show DetailDoanewWidget;
+export '/dashoard/home_quran_new/home_quran_new_widget.dart'
+    show HomeQuranNewWidget;
+export '/a_l_quran/detail_surat_alquran/detail_surat_alquran_widget.dart'
+    show DetailSuratAlquranWidget;

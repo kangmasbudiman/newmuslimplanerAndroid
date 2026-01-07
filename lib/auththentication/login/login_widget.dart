@@ -56,7 +56,7 @@ class _LoginWidgetState extends State<LoginWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: Padding(
@@ -671,10 +671,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
-                    'assets/images/New_Project.png',
-                    width: 49.0,
-                    height: 24.0,
-                    fit: BoxFit.contain,
+                    'assets/images/WhatsApp_Image_2025-11-13_at_09.56.23.jpeg',
+                    width: 62.38,
+                    height: 43.7,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ],

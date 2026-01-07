@@ -3571,6 +3571,303 @@ class UserActivityLogCountCall {
 
 /// End HelpandSupport Group Code
 
+/// Start EquranAPI Group Code
+
+class EquranAPIGroup {
+  static String getBaseUrl() => 'https://equran.id/api';
+  static Map<String, String> headers = {};
+  static IndonesiaVersiCall indonesiaVersiCall = IndonesiaVersiCall();
+  static SuratCall suratCall = SuratCall();
+  static CariCall cariCall = CariCall();
+}
+
+class IndonesiaVersiCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = EquranAPIGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'indonesiaVersi',
+      apiUrl: '${baseUrl}/v2/surat',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? respon(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  List<String>? nama(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].nama''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? namaLatin(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].namaLatin''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? jumlahAyat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].jumlahAyat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<int>? nomor(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].nomor''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? arti(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].arti''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tempatTurun(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].tempatTurun''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class SuratCall {
+  Future<ApiCallResponse> call({
+    int? nomor = 0,
+  }) async {
+    final baseUrl = EquranAPIGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'surat',
+      apiUrl: '${baseUrl}/v2/surat/${nomor}',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'nomor': nomor,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  int? nomor(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.nomor''',
+      ));
+  String? nama(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.nama''',
+      ));
+  String? namaLatin(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.namaLatin''',
+      ));
+  int? jumlahAyat(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.jumlahAyat''',
+      ));
+  List? ayat(dynamic response) => getJsonField(
+        response,
+        r'''$.data.ayat''',
+        true,
+      ) as List?;
+  List<String>? teskArab(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.ayat[:].teksArab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? teksLatin(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.ayat[:].teksLatin''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? teksIndonesia(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.ayat[:].teksIndonesia''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? nomorAyat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data.ayat[:].nomorAyat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  dynamic suratSelanjutnya(dynamic response) => getJsonField(
+        response,
+        r'''$.data.suratSelanjutnya''',
+      );
+  int? suratSelanjutnyaNomor(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.suratSelanjutnya.nomor''',
+      ));
+  String? suratSelanjutnyaNama(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.suratSelanjutnya.nama''',
+      ));
+  String? suratSelanjutnyaNamaLatin(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.suratSelanjutnya.namaLatin''',
+      ));
+  int? suratSelanjutnyaJumlahAyat(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.data.suratSelanjutnya.jumlahAyat''',
+      ));
+  dynamic audio(dynamic response) => getJsonField(
+        response,
+        r'''$.data.ayat[:].audio''',
+      );
+}
+
+class CariCall {
+  Future<ApiCallResponse> call({
+    String? cari = '',
+  }) async {
+    final baseUrl = EquranAPIGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "cari": "${escapeStringForJson(cari)}",
+  "batas": 10,
+  "tipe": [
+    "surat"
+  ]
+ }''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'cari',
+      apiUrl: '${baseUrl}/vector',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.hasil[:].data''',
+        true,
+      ) as List?;
+  List<int>? dataIdSurat(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.id_surat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? namaLatin(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.nama''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? namaArab(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.nama_arab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? arti(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.arti''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? jumlahAyat(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.jumlah_ayat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? tempatTurun(dynamic response) => (getJsonField(
+        response,
+        r'''$.hasil[:].data.tempat_turun''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+/// End EquranAPI Group Code
+
 class DaftarSuratCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
@@ -4733,6 +5030,24 @@ class KiblatCall {
       ));
 }
 
+class NeeweditionCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'neewedition',
+      apiUrl: 'https://al-quran.indata.id/edition.json',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -4778,4 +5093,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }
