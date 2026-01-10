@@ -64,13 +64,7 @@ class _HomeQuranNewWidgetState extends State<HomeQuranNewWidget> {
                 width: double.infinity,
                 height: 58.33,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.asset(
-                      'assets/images/Screenshot_2026-01-05_at_20.14.23.png',
-                    ).image,
-                  ),
+                  color: FlutterFlowTheme.of(context).primary,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 4.0,
@@ -92,7 +86,7 @@ class _HomeQuranNewWidgetState extends State<HomeQuranNewWidget> {
                   buttonSize: 60.0,
                   icon: Icon(
                     Icons.arrow_back_rounded,
-                    color: Colors.white,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 30.0,
                   ),
                   onPressed: () async {
@@ -107,27 +101,21 @@ class _HomeQuranNewWidgetState extends State<HomeQuranNewWidget> {
                   child: Text(
                     'Al-Quran',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.nunito(
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontStyle,
-                      ),
-                      color: FlutterFlowTheme.of(context).primary,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.bold,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                      shadows: [
-                        Shadow(
+                          font: GoogleFonts.nunito(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .fontStyle,
+                          ),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          offset: Offset(2.0, 2.0),
-                          blurRadius: 2.0,
-                        )
-                      ],
-                    ),
+                          fontSize: 22.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                   ),
                 ),
               ),
