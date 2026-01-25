@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/componen/navbar/navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -1181,6 +1182,14 @@ class _HomeQuranNewWidgetState extends State<HomeQuranNewWidget> {
                     ),
                   ),
                 ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: wrapWithModel(
+                  model: _model.navbarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: NavbarWidget(),
+                ),
+              ),
             ],
           ),
         ),
