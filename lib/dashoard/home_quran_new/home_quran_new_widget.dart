@@ -272,7 +272,7 @@ class _HomeQuranNewWidgetState extends State<HomeQuranNewWidget> {
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 100.0, 20.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 100.0, 20.0, 90.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: FFAppState().newQuran(
                         requestFn: () =>
