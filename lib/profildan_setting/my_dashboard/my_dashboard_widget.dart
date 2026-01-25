@@ -32,18 +32,7 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
     _model = createModel(context, () => MyDashboardModel());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultxrz =
-          await HelpandSupportGroup.userActivityLogCountCall.call(
-        iduser: currentUserUid,
-      );
-
-      if ((_model.apiResultxrz?.succeeded ?? true)) {
-        FFAppState().countlogstate =
-            CountLogStruct.maybeFromMap((_model.apiResultxrz?.jsonBody ?? ''))!;
-        safeSetState(() {});
-      }
-    });
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -852,59 +841,58 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                           Align(
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
-                                            child:
-                                                FutureBuilder<ApiCallResponse>(
-                                              future: SunahGroup.getsunahCall
-                                                  .call(),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 20.0,
-                                                      height: 20.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                final columnGetsunahResponse =
-                                                    snapshot.data!;
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 20.0,
+                                                                0.0, 0.0),
+                                                    child: FutureBuilder<
+                                                        ApiCallResponse>(
+                                                      future: HelpandSupportGroup
+                                                          .userActivityLogCountCall
+                                                          .call(),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 20.0,
+                                                              height: 20.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final textUserActivityLogCountResponse =
+                                                            snapshot.data!;
 
-                                                return Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
+                                                        return Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            FFAppState()
-                                                                .countlogstate
-                                                                .sunah
+                                                            CountLogStruct.maybeFromMap(
+                                                                    textUserActivityLogCountResponse
+                                                                        .jsonBody)
+                                                                ?.sunah
                                                                 .toString(),
-                                                            '0',
+                                                            'o',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -934,12 +922,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                                     .bodyMedium
                                                                     .fontStyle,
                                                               ),
-                                                        ),
-                                                      ),
+                                                        );
+                                                      },
                                                     ),
-                                                  ],
-                                                );
-                                              },
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],
@@ -1066,55 +1054,53 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                               ],
                                             ),
                                           ),
-                                          FutureBuilder<ApiCallResponse>(
-                                            future: NewDaftarSuratCall.call(
-                                              keyword: 'noSearch',
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 20.0,
-                                                    height: 20.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              final columnNewDaftarSuratResponse =
-                                                  snapshot.data!;
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
+                                                  child: FutureBuilder<
+                                                      ApiCallResponse>(
+                                                    future: HelpandSupportGroup
+                                                        .userActivityLogCountCall
+                                                        .call(),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 20.0,
+                                                            height: 20.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      final textUserActivityLogCountResponse =
+                                                          snapshot.data!;
 
-                                              return Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
+                                                      return Text(
                                                         valueOrDefault<String>(
-                                                          FFAppState()
-                                                              .countlogstate
-                                                              .alQuran
+                                                          CountLogStruct.maybeFromMap(
+                                                                  textUserActivityLogCountResponse
+                                                                      .jsonBody)
+                                                              ?.alQuran
                                                               .toString(),
                                                           '0',
                                                         ),
@@ -1146,12 +1132,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                             ),
-                                                      ),
-                                                    ),
+                                                      );
+                                                    },
                                                   ),
-                                                ],
-                                              );
-                                            },
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -1284,16 +1270,45 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 20.0, 0.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  FFAppState()
-                                                      .countlogstate
-                                                      .sholat
-                                                      .toString(),
-                                                  '0',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              child: FutureBuilder<
+                                                  ApiCallResponse>(
+                                                future: HelpandSupportGroup
+                                                    .userActivityLogCountCall
+                                                    .call(),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 20.0,
+                                                        height: 20.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  final textUserActivityLogCountResponse =
+                                                      snapshot.data!;
+
+                                                  return Text(
+                                                    valueOrDefault<String>(
+                                                      CountLogStruct.maybeFromMap(
+                                                              textUserActivityLogCountResponse
+                                                                  .jsonBody)
+                                                          ?.sholat
+                                                          .toString(),
+                                                      '0',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           font:
@@ -1318,6 +1333,8 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
@@ -1445,54 +1462,53 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                               ],
                                             ),
                                           ),
-                                          FutureBuilder<ApiCallResponse>(
-                                            future:
-                                                DoadoaGroup.getDoaCall.call(),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 20.0,
-                                                    height: 20.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              final columnGetDoaResponse =
-                                                  snapshot.data!;
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 0.0),
+                                                  child: FutureBuilder<
+                                                      ApiCallResponse>(
+                                                    future: HelpandSupportGroup
+                                                        .userActivityLogCountCall
+                                                        .call(),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 20.0,
+                                                            height: 20.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      final textUserActivityLogCountResponse =
+                                                          snapshot.data!;
 
-                                              return Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
+                                                      return Text(
                                                         valueOrDefault<String>(
-                                                          FFAppState()
-                                                              .countlogstate
-                                                              .doaDoa
+                                                          CountLogStruct.maybeFromMap(
+                                                                  textUserActivityLogCountResponse
+                                                                      .jsonBody)
+                                                              ?.doaDoa
                                                               .toString(),
                                                           '0',
                                                         ),
@@ -1524,12 +1540,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                             ),
-                                                      ),
-                                                    ),
+                                                      );
+                                                    },
                                                   ),
-                                                ],
-                                              );
-                                            },
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),

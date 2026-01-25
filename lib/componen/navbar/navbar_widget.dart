@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -164,6 +166,14 @@ class _NavbarWidgetState extends State<NavbarWidget> {
             highlightColor: Colors.transparent,
             onTap: () async {
               context.pushNamed(HomeQuranNewWidget.routeName);
+
+              _model.apiResult80o =
+                  await HelpandSupportGroup.userActivityLogCall.call(
+                iduser: currentUserUid,
+                fitureName: 'Al-quran',
+              );
+
+              safeSetState(() {});
             },
             child: Container(
               decoration: BoxDecoration(

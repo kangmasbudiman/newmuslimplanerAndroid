@@ -385,12 +385,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 focusedErrorBorder:
                                                     InputBorder.none,
                                                 suffixIcon: InkWell(
-                                                  onTap: () => safeSetState(
-                                                    () => _model
+                                                  onTap: () async {
+                                                    safeSetState(() => _model
                                                             .textFieldpasswordVisibility =
                                                         !_model
-                                                            .textFieldpasswordVisibility,
-                                                  ),
+                                                            .textFieldpasswordVisibility);
+                                                  },
                                                   focusNode: FocusNode(
                                                       skipTraversal: true),
                                                   child: Icon(

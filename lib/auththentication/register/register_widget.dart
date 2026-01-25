@@ -578,12 +578,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     focusedErrorBorder:
                                                         InputBorder.none,
                                                     suffixIcon: InkWell(
-                                                      onTap: () => safeSetState(
-                                                        () => _model
+                                                      onTap: () async {
+                                                        safeSetState(() => _model
                                                                 .textFieldpasswordVisibility =
                                                             !_model
-                                                                .textFieldpasswordVisibility,
-                                                      ),
+                                                                .textFieldpasswordVisibility);
+                                                      },
                                                       focusNode: FocusNode(
                                                           skipTraversal: true),
                                                       child: Icon(
@@ -768,12 +768,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                                     focusedErrorBorder:
                                                         InputBorder.none,
                                                     suffixIcon: InkWell(
-                                                      onTap: () => safeSetState(
-                                                        () => _model
+                                                      onTap: () async {
+                                                        safeSetState(() => _model
                                                                 .textFieldConfirmpasswordVisibility =
                                                             !_model
-                                                                .textFieldConfirmpasswordVisibility,
-                                                      ),
+                                                                .textFieldConfirmpasswordVisibility);
+                                                      },
                                                       focusNode: FocusNode(
                                                           skipTraversal: true),
                                                       child: Icon(
