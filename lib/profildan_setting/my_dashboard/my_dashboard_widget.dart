@@ -32,7 +32,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
     _model = createModel(context, () => MyDashboardModel());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResultxrz =
+          await HelpandSupportGroup.userActivityLogCountCall.call(
+        iduser: currentUserUid,
+      );
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -857,9 +862,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                                 0.0, 0.0),
                                                     child: FutureBuilder<
                                                         ApiCallResponse>(
-                                                      future: HelpandSupportGroup
-                                                          .userActivityLogCountCall
-                                                          .call(),
+                                                      future: _model.sunnah(
+                                                        requestFn: () =>
+                                                            HelpandSupportGroup
+                                                                .userActivityLogCountCall
+                                                                .call(),
+                                                      ),
                                                       builder:
                                                           (context, snapshot) {
                                                         // Customize what your widget looks like when it's loading.
@@ -1068,9 +1076,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: FutureBuilder<
                                                       ApiCallResponse>(
-                                                    future: HelpandSupportGroup
-                                                        .userActivityLogCountCall
-                                                        .call(),
+                                                    future: _model.quran(
+                                                      requestFn: () =>
+                                                          HelpandSupportGroup
+                                                              .userActivityLogCountCall
+                                                              .call(),
+                                                    ),
                                                     builder:
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
@@ -1272,9 +1283,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                       0.0, 20.0, 0.0, 0.0),
                                               child: FutureBuilder<
                                                   ApiCallResponse>(
-                                                future: HelpandSupportGroup
-                                                    .userActivityLogCountCall
-                                                    .call(),
+                                                future: _model.sholat(
+                                                  requestFn: () =>
+                                                      HelpandSupportGroup
+                                                          .userActivityLogCountCall
+                                                          .call(),
+                                                ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -1476,9 +1490,12 @@ class _MyDashboardWidgetState extends State<MyDashboardWidget> {
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: FutureBuilder<
                                                       ApiCallResponse>(
-                                                    future: HelpandSupportGroup
-                                                        .userActivityLogCountCall
-                                                        .call(),
+                                                    future: _model.doa(
+                                                      requestFn: () =>
+                                                          HelpandSupportGroup
+                                                              .userActivityLogCountCall
+                                                              .call(),
+                                                    ),
                                                     builder:
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
