@@ -211,8 +211,10 @@ class _SubDetailTaskSunahWidgetState extends State<SubDetailTaskSunahWidget> {
                     height: MediaQuery.sizeOf(context).height * 0.693,
                     decoration: BoxDecoration(),
                     child: FutureBuilder<ApiCallResponse>(
-                      future: SunahGroup.fadilahbysunahCall.call(
-                        idsunah: widget.idsunah,
+                      future: FFAppState().detailsinah(
+                        requestFn: () => SunahGroup.fadilahbysunahCall.call(
+                          idsunah: widget.idsunah,
+                        ),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.

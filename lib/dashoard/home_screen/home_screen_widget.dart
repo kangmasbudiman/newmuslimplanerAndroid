@@ -816,6 +816,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
+                                                            FFAppState()
+                                                                .clearDetailsinahCache();
+
                                                             context.pushNamed(
                                                               SubDetailTaskSunahWidget
                                                                   .routeName,
@@ -1304,6 +1307,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
+                                                            FFAppState()
+                                                                .clearDetailsinahCache();
+
                                                             context.pushNamed(
                                                               SubDetailTaskSunahWidget
                                                                   .routeName,
@@ -1737,6 +1743,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
+                                                            FFAppState()
+                                                                .clearDetailsinahCache();
+
                                                             context.pushNamed(
                                                               SubDetailTaskSunahWidget
                                                                   .routeName,
@@ -2225,6 +2234,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
+                                                            FFAppState()
+                                                                .clearDetailsinahCache();
+
                                                             context.pushNamed(
                                                               SubDetailTaskSunahWidget
                                                                   .routeName,
@@ -2697,6 +2709,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .clearDetailsinahCache();
+
                                                                       context
                                                                           .pushNamed(
                                                                         SubDetailTaskSunahWidget
@@ -3087,6 +3102,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .clearDetailsinahCache();
+
                                                                       context
                                                                           .pushNamed(
                                                                         SubDetailTaskSunahWidget
@@ -3481,6 +3499,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .clearDetailsinahCache();
+
                                                                       context
                                                                           .pushNamed(
                                                                         SubDetailTaskSunahWidget
@@ -3880,6 +3901,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .clearDetailsinahCache();
+
                                                                       context
                                                                           .pushNamed(
                                                                         SubDetailTaskSunahWidget
@@ -4273,6 +4297,9 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      FFAppState()
+                                                                          .clearDetailsinahCache();
+
                                                                       context
                                                                           .pushNamed(
                                                                         SubDetailTaskSunahWidget

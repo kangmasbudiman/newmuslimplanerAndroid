@@ -886,6 +886,21 @@ class FFAppState extends ChangeNotifier {
   void clearSakitCacheKey(String? uniqueKey) =>
       _sakitManager.clearRequest(uniqueKey);
 
+  final _detailsinahManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> detailsinah({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _detailsinahManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearDetailsinahCache() => _detailsinahManager.clear();
+  void clearDetailsinahCacheKey(String? uniqueKey) =>
+      _detailsinahManager.clearRequest(uniqueKey);
+
   final _newQuranManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> newQuran({
     String? uniqueQueryKey,
